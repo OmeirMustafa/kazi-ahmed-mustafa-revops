@@ -2,7 +2,11 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-scroll';
-import { Menu, X, ArrowRight, Network, Users, Settings, BarChart3, Mail, Phone, MapPin, Linkedin, Send, ArrowDown } from 'lucide-react';
+import {
+  Menu, X, ArrowRight, Network, Users, Settings, BarChart3,
+  Mail, Phone, MapPin, Linkedin, Send, ArrowDown, Database,
+  Zap, Globe, Layers, Cpu, Workflow
+} from 'lucide-react';
 
 // --- COMPONENTS ---
 
@@ -20,7 +24,8 @@ const Navbar = () => {
     { name: 'Home', to: 'hero' },
     { name: 'About', to: 'about' },
     { name: 'Services', to: 'services' },
-    { name: 'Case Studies', to: 'work' },
+    { name: 'Methodology', to: 'process' },
+    { name: 'Outcomes', to: 'work' },
   ];
 
   return (
@@ -101,8 +106,8 @@ const Hero = () => {
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-500">Your Revenue.</span>
         </motion.h1>
 
-        <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }} className="max-w-2xl mx-auto text-lg md:text-xl text-white/60 mb-10 leading-relaxed font-light">
-          I build high-velocity revenue engines for B2B SaaS and Agencies. From CRM architecture to automated workflow systems—I turn data into predictable growth.
+        <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }} className="max-w-3xl mx-auto text-lg md:text-2xl text-white/70 mb-10 leading-relaxed font-light">
+          Stop relying on founder-led sales and 'hustle.' I build the automated CRM infrastructure that allows B2B SaaS companies to scale pipeline without hiring more headcount.
         </motion.p>
 
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.8 }} className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -124,6 +129,23 @@ const Hero = () => {
   );
 };
 
+// --- NEW COMPONENT: TRUST BAR ---
+const TrustBar = () => {
+  return (
+    <section className="py-10 bg-[#050505] border-b border-white/5 relative z-20">
+      <div className="container">
+        <p className="text-center text-xs font-bold tracking-[0.2em] uppercase text-white/30 mb-8">Trusted by Engineering-Led Teams At:</p>
+        <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-8 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+          <span className="text-xl md:text-2xl font-bold text-white font-outfit tracking-tighter">APLOMBTECH</span>
+          <span className="text-xl md:text-2xl font-bold text-white font-outfit tracking-tighter">UMA</span>
+          <span className="text-xl md:text-2xl font-bold text-white font-outfit tracking-tighter">ISRA</span>
+          <span className="text-xl md:text-2xl font-bold text-white font-outfit tracking-tighter">TECHFLOW</span>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const About = () => {
   return (
     <section id="about" className="section bg-[#050505]">
@@ -134,15 +156,15 @@ const About = () => {
             <span className="text-emerald-400 font-bold tracking-widest uppercase text-sm mb-4 block">About Me</span>
             <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight">The Bridge Between <br /> <span className="text-white/50">Engineering & Business</span></h2>
 
-            <div className="text-white/70 text-lg space-y-6 mb-12 font-light">
+            <div className="text-white/70 text-lg space-y-6 mb-12 font-light leading-relaxed">
               <p>
-                I don't just "manage" operations—I engineer them. My background bridges the gap between technical implementation and strategic revenue growth.
+                Your engineering team runs on logic and systems. Your sales team should, too.
               </p>
               <p>
-                With extensive experience in <strong>Marketing Operations, CRM Architecture, and Business Development</strong>, I help companies stop leaking revenue and start building predictable, scalable pipelines.
+                With a background in <strong>Electrical Engineering</strong>, I treat your revenue cycle like a circuit—identifying resistance, fixing broken connections, and optimizing for maximum throughput.
               </p>
               <p>
-                I treat your business like a software product: analyze, debug, refactor, and optimize for maximum throughput.
+                I don't just manage operations; I engineer them for predictability.
               </p>
             </div>
 
@@ -198,6 +220,28 @@ const About = () => {
             </div>
           </motion.div>
         </div>
+
+        {/* --- NEW COMPONENT: TECH STACK (Inside About) --- */}
+        <div className="mt-20 pt-10 border-t border-white/5">
+          <h3 className="text-center text-xl font-bold mb-8 text-white/80">Built on Modern Revenue Architecture</h3>
+          <div className="flex flex-wrap justify-center gap-6 md:gap-10">
+            {[
+              { name: "HubSpot", icon: <Database /> },
+              { name: "Apollo.io", icon: <Send /> },
+              { name: "LinkedIn Sales Nav", icon: <Linkedin /> },
+              { name: "Make.com", icon: <Workflow /> },
+              { name: "Zapier", icon: <Zap /> },
+              { name: "Salesforce", icon: <Globe /> }
+            ].map((tool, index) => (
+              <div key={index} className="flex flex-col items-center gap-3 p-4 bg-white/5 rounded-xl border border-white/5 min-w-[120px] hover:border-emerald-500/30 transition-colors cursor-default group">
+                <div className="text-white/50 group-hover:text-emerald-400 transition-colors">
+                  {tool.icon}
+                </div>
+                <span className="text-sm font-bold text-white/70">{tool.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -236,19 +280,61 @@ const Services = () => {
   );
 };
 
+// --- NEW COMPONENT: PROCESS ENGINE ---
+const ProcessEngine = () => {
+  return (
+    <section id="process" className="section bg-[#050505]">
+      <div className="container">
+        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center max-w-3xl mx-auto mb-20">
+          <span className="text-emerald-400 font-bold tracking-widest uppercase text-sm mb-4 block">The Process</span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">The FlowState Methodology</h2>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative items-start">
+          {/* Connecting Line (Desktop) */}
+          <div className="hidden md:block absolute top-[40px] left-16 right-16 h-[2px] bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent z-0"></div>
+
+          {[
+            { title: "Audit (The Circuit Break)", desc: "Diagnostic of your current commercial stack and bottlenecks.", icon: <Cpu /> },
+            { title: "Build (The Rewiring)", desc: "Architecture and implementation of CRM workflows and automations.", icon: <Layers /> },
+            { title: "Run (The Voltage)", desc: "Continuous optimization and high-velocity lead generation.", icon: <Zap /> },
+          ].map((step, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.2 }}
+              className="relative z-10 flex flex-col items-center text-center group"
+            >
+              <div className="w-20 h-20 rounded-full bg-[#0a0a0a] border-2 border-emerald-500 flex items-center justify-center mb-6 shadow-[0_0_20px_rgba(16,185,129,0.2)] group-hover:shadow-[0_0_30px_rgba(16,185,129,0.5)] transition-shadow duration-300">
+                <div className="text-emerald-400">
+                  {step.icon}
+                </div>
+              </div>
+              <h3 className="text-xl font-bold mb-4 text-white">{step.title}</h3>
+              <p className="text-white/60 leading-relaxed px-4">{step.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const CaseStudies = () => {
   const cases = [
-    { title: "B2B SaaS Pipeline Rebuild", category: "Revenue Infrastructure", result: "+40% Lead Velocity", desc: "Redesigned the entire HubSpot CRM architecture for a SaaS client, implementing automatic lead scoring." },
+    { title: "B2B SaaS Pipeline Rebuild", category: "Revenue Infrastructure", result: "Reduced Cycle by 14 Days", desc: "Eliminated manual data entry, reducing sales cycle by 14 days." },
     { title: "Agency Outbound System", category: "Lead Generation", result: "150+ Qualified Meetings", desc: "Built a multi-channel outbound system using Apollo.ai & LinkedIn Sales Nav." },
-    { title: "Global Tender Workflow", category: "Process Optimization", result: "20hrs/Week Saved", desc: "Engineered a ClickUp-based tender management system for an industrial firm." }
+    { title: "Global Tender Workflow", category: "Process Optimization", result: "20+ Hours Saved/Week", desc: "Automated tender tracking system, saving 20+ hours of executive time per week." }
   ];
 
   return (
-    <section id="work" className="section bg-[#050505]">
+    <section id="work" className="section bg-[#080808]">
       <div className="container">
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16">
           <span className="text-emerald-400 font-bold tracking-widest uppercase text-sm mb-4 block">Selected Work</span>
-          <h2 className="text-4xl md:text-5xl font-bold">Provenance & Results</h2>
+          <h2 className="text-4xl md:text-5xl font-bold">Engineered Outcomes</h2>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -330,17 +416,60 @@ const Contact = () => {
             </form>
           </motion.div>
         </div>
+      </div>
+    </section>
+  );
+};
 
-        <div className="mt-24 pt-10 border-t border-white/10 text-center md:text-left flex flex-col md:flex-row justify-between items-center text-white/40 text-sm font-light">
-          <p>&copy; {new Date().getFullYear()} Kazi Ahmed Mustafa Kamal Uddin.</p>
+// --- FOOTER COMPONENT ---
+const Footer = () => {
+  return (
+    <footer className="bg-[#050505] pt-20 pb-10 border-t border-white/10">
+      <div className="container">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 mb-16">
+          {/* Col 1: Brand */}
+          <div className="space-y-4">
+            <h4 className="text-2xl font-bold font-outfit tracking-tighter text-white cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+              KAZI<span className="text-emerald-400">.</span>REVOPS
+            </h4>
+            <p className="text-white/40 text-sm">
+              &copy; {new Date().getFullYear()} All Rights Reserved.
+            </p>
+          </div>
+
+          {/* Col 2: Navigation */}
+          <div className="flex flex-col space-y-3">
+            <h5 className="font-bold text-white mb-2">Navigation</h5>
+            {['Home', 'About', 'Services', 'Case Studies'].map((item) => (
+              <Link key={item} to={item === 'Home' ? 'hero' : item === 'Case Studies' ? 'work' : item === 'Services' ? 'services' : 'about'} smooth={true} duration={800} className="text-white/40 hover:text-emerald-400 transition-colors text-sm cursor-pointer w-fit">
+                {item}
+              </Link>
+            ))}
+          </div>
+
+          {/* Col 3: Connect */}
+          <div className="flex flex-col space-y-4">
+            <h5 className="font-bold text-white mb-2">Connect</h5>
+            <div className="flex gap-4">
+              <a href="https://linkedin.com/in/kazi-ahmed-mustafa" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:text-white hover:bg-emerald-500 transition-all">
+                <Linkedin size={20} />
+              </a>
+              <a href="mailto:ask.ahmedmustafa@gmail.com" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:text-white hover:bg-emerald-500 transition-all">
+                <Mail size={20} />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div className="pt-8 border-t border-white/5 text-center md:text-left flex flex-col md:flex-row justify-between items-center text-white/20 text-xs">
+          <p>Designed for Revenue Engineering.</p>
           <div className="flex gap-6 mt-4 md:mt-0">
             <span>Systems Architect</span>
             <span>RevOps Leader</span>
-            <span>Dhaka, Bangladesh</span>
           </div>
         </div>
       </div>
-    </section>
+    </footer>
   );
 };
 
@@ -351,10 +480,13 @@ function App() {
     <div className="bg-[#050505] min-h-screen text-white overflow-x-hidden w-full selection:bg-emerald-500/30 selection:text-emerald-100">
       <Navbar />
       <Hero />
+      <TrustBar />
       <About />
       <Services />
+      <ProcessEngine />
       <CaseStudies />
       <Contact />
+      <Footer />
     </div>
   );
 }
