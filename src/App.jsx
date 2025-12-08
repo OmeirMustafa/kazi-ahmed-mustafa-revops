@@ -95,7 +95,7 @@ const Hero = () => {
 
       <div className="container relative z-10 text-center px-4">
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }}>
-          <span className="hidden md:inline-block py-1 px-3 border border-white/20 rounded-full text-xs font-bold tracking-[0.2em] uppercase text-emerald-400 mb-6 bg-black/30 backdrop-blur-sm">
+          <span className="hidden md:block py-1 px-3 border border-white/20 rounded-full text-xs font-bold tracking-[0.2em] uppercase text-emerald-400 mb-6 bg-black/30 backdrop-blur-sm">
             Revenue Infrastructure Architect
           </span>
         </motion.div>
@@ -405,7 +405,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="text-xs text-white/40 uppercase font-bold tracking-wider">{contact.label}</p>
-                    <p className="text-lg font-medium">{contact.val}</p>
+                    <p className="text-sm sm:text-lg font-medium break-all">{contact.val}</p>
                   </div>
                 </a>
               ))}
