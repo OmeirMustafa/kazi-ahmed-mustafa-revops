@@ -20,9 +20,9 @@ This is a personal portfolio website built with **React, Vite, and Framer Motion
    npm run dev
    ```
 
-3. Build for production:
+3. Build for production: 
    ```bash
-   npm run build 
+   npm run build  
    ```
 
 ## Customization
