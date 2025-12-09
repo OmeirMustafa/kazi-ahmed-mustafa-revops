@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-scroll';
 import { ArrowRight } from 'lucide-react';
+import ContactModal from './ContactModal';
 
 const Hero = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
     return (
         <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#050505] pt-20">
+            <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+
             {/* Background Ambience */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-neon-blue/10 via-transparent to-transparent opacity-50"></div>
 
@@ -34,11 +39,14 @@ const Hero = () => {
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-5">
-                        <Link to="contact" smooth={true} duration={800} offset={-70} className="btn-primary-neon group relative overflow-hidden">
+                        <button
+                            onClick={() => setIsModalOpen(true)}
+                            className="btn-primary-neon group relative overflow-hidden"
+                        >
                             <span className="relative z-10 font-bold text-black group-hover:text-black">Request a Revenue Architecture Audit</span>
                             <ArrowRight className="inline-block ml-2 w-5 h-5 text-black group-hover:translate-x-1 transition-transform relative z-10" />
-                        </Link>
-                        <Link to="process" smooth={true} duration={800} offset={-70} className="btn-secondary-neon">
+                        </button>
+                        <Link to="process" smooth={true} duration={800} offset={-70} className="btn-secondary-neon z-20 cursor-pointer">
                             See How I Work
                         </Link>
                     </div>
