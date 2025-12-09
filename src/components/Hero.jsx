@@ -34,9 +34,9 @@ const Hero = () => {
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-5">
-                        <Link to="contact" smooth={true} duration={800} offset={-70} className="btn-primary-neon group">
-                            Request a Revenue Architecture Audit
-                            <ArrowRight className="inline-block ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                        <Link to="contact" smooth={true} duration={800} offset={-70} className="btn-primary-neon group relative overflow-hidden">
+                            <span className="relative z-10 font-bold text-black group-hover:text-black">Request a Revenue Architecture Audit</span>
+                            <ArrowRight className="inline-block ml-2 w-5 h-5 text-black group-hover:translate-x-1 transition-transform relative z-10" />
                         </Link>
                         <Link to="process" smooth={true} duration={800} offset={-70} className="btn-secondary-neon">
                             See How I Work

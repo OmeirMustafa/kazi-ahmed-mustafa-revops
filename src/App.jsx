@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navbar } from './components/Navigation'; // Adjusted to pull from Navigation.jsx which exports Navbar
 import Hero from './components/Hero';
+import TrustBar from './components/TrustBar';
 import Services from './components/Services';
 import About from './components/About';
 import Contact from './components/Contact';
@@ -18,6 +19,7 @@ function App() {
       <Navbar />
       <main>
         <Hero />
+        <TrustBar />
         <ValueProp />
         <Symptoms />
         <CoreOffer />

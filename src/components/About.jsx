@@ -14,7 +14,14 @@ const About = () => {
                     className="relative"
                 >
                     <div className="absolute inset-0 bg-neon-blue/20 blur-[100px] rounded-full"></div>
-                    <img src="/profile.jpg" alt="Kazi Ahmed Mustafa" className="relative z-10 w-full md:w-[80%] mx-auto rounded-3xl grayscale hover:grayscale-0 transition-all duration-700 border border-white/10 shadow-2xl" />
+                    <img
+                        src="/profile.jpg"
+                        alt="Kazi Ahmed Mustafa - Revenue Architect"
+                        width="800"
+                        height="800"
+                        loading="lazy"
+                        className="relative z-10 w-full md:w-[80%] mx-auto rounded-3xl grayscale hover:grayscale-0 transition-all duration-700 border border-white/10 shadow-2xl"
+                    />
                 </motion.div>
 
                 {/* Text */}
@@ -23,14 +30,14 @@ const About = () => {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                 >
-                    <span className="text-neon-blue font-mono text-sm tracking-widest uppercase mb-4 block">Who I Am</span>
-                    <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-8">System Architect. <br />Revenue Engineer.</h2>
+                    <span className="text-neon-blue font-mono text-sm tracking-widest uppercase mb-4 block">My Philosophy</span>
+                    <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-8">From Circuit Boards <br />to Dashboards.</h2>
                     <div className="text-lg md:text-xl text-white/70 space-y-6 font-light leading-relaxed">
                         <p>
-                            I design revenue systems for B2B companies that want scalable, predictable growth without operational friction.
+                            I didn't start in marketing. I started in Electrical Engineering (BSc).
                         </p>
                         <p>
-                            My work blends business strategy with deep technical implementation — connecting CRM architecture, automation, analytics, and process design into one unified engine.
+                            I don't see sales as an art form—I see it as a circuit. If there is resistance, I reduce it. If there is a disconnect, I bridge it. I build revenue engines that don't just run—they hum.
                         </p>
                     </div>
                 </motion.div>

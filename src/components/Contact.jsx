@@ -25,7 +25,7 @@ const Contact = () => {
                         className="inline-block"
                     >
                         <a
-                            href="mailto:ask.ahmedmustafa@gmail.com"
+                            href="mailto:ask.ahmedmustafa@gmail.com?subject=Revenue%20Architecture%20Audit%20Request&body=Hi%20Kazi%2C%0A%0AI%27d%20like%20to%20request%20a%20Revenue%20Architecture%20Audit.%20Here%20is%20my%20context%3A"
                             className="btn-primary-neon text-xl px-10 py-5 shadow-[0_0_50px_rgba(57,169,255,0.3)] hover:shadow-[0_0_80px_rgba(57,169,255,0.5)]"
                         >
                             Request a Revenue Architecture Audit
@@ -36,7 +36,7 @@ const Contact = () => {
                         <a href="https://linkedin.com/in/kazi-ahmed-mustafa" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white/50 hover:text-neon-blue transition-colors">
                             <Linkedin className="w-5 h-5" /> LinkedIn
                         </a>
-                        <a href="mailto:ask.ahmedmustafa@gmail.com" className="flex items-center gap-2 text-white/50 hover:text-neon-blue transition-colors">
+                        <a href="mailto:ask.ahmedmustafa@gmail.com?subject=General%20Inquiry" className="flex items-center gap-2 text-white/50 hover:text-neon-blue transition-colors">
                             <Mail className="w-5 h-5" /> Email
                         </a>
                     </div>
