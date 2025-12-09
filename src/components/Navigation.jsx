@@ -45,8 +45,8 @@ export const Navbar = () => {
                 </div>
 
                 {/* Mobile Toggle */}
-                <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-white">
-                    {isOpen ? <X /> : <Menu />}
+                <button onClick={() => setIsOpen(true)} className={`md:hidden text-white ${isOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
+                    <Menu />
                 </button>
 
                 {/* Mobile Menu */}
@@ -56,14 +56,23 @@ export const Navbar = () => {
                             initial={{ opacity: 0, x: '100%' }}
                             animate={{ opacity: 1, x: 0 }}
                             exit={{ opacity: 0, x: '100%' }}
-                            className="fixed inset-0 bg-[#050505] z-40 flex flex-col items-center justify-center gap-8 md:hidden"
+                            transition={{ type: "tween", duration: 0.3 }}
+                            className="fixed inset-0 bg-slate-950 z-50 flex flex-col items-center justify-start pt-32 gap-8 md:hidden overflow-y-auto"
                         >
+                            {/* Close Button - Fixed/Sticky */}
+                            <button
+                                onClick={() => setIsOpen(false)}
+                                className="absolute top-6 right-4 text-white p-2 hover:text-neon-blue transition-colors"
+                            >
+                                <X className="w-8 h-8" />
+                            </button>
+
                             {navLinks.map((link) => (
-                                <Link key={link.to} to={link.to} smooth={true} duration={800} onClick={() => setIsOpen(false)} className="text-2xl font-display font-bold text-white hover:text-neon-blue">
+                                <Link key={link.to} to={link.to} smooth={true} duration={800} onClick={() => setIsOpen(false)} className="text-3xl font-display font-bold text-white hover:text-neon-blue cursor-pointer">
                                     {link.name}
                                 </Link>
                             ))}
-                            <Link to="contact" smooth={true} duration={800} onClick={() => setIsOpen(false)} className="btn-primary-neon mt-4">
+                            <Link to="contact" smooth={true} duration={800} onClick={() => setIsOpen(false)} className="btn-primary-neon mt-8 text-xl px-8 py-4">
                                 Let's Talk
                             </Link>
                         </motion.div>
